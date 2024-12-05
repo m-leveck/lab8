@@ -14,6 +14,7 @@
             let nSeconds = 1000*60*60*24;
             let nDaysLeft = Math.ceil((nPiDay.getTime()-today.getTime())/(nSeconds));
             console.log(nDaysLeft); //logs the value we are looking for in our heading
+                this.innerHTML=nDaysLeft;
             // put your "secret sauce here to get this in to the document
         }
     }

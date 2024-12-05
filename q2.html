@@ -1,1 +1,40 @@
 <!-- rewrite this document with the required content -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tim Berners Lee</title>
+    <script>
+        class Year extends HTMLElement{
+            connectedCallback(){
+                this.innerHTML = new Date().getFullYear();
+            }
+        }
+        customElements.define("x-year", Year);
+    </script>
+</head>
+
+<body>
+    <main>
+        <header>
+          <h1>Tim Berners Lee</h1>
+        </header>
+    </a>
+        <a href="https://en.wikipedia.org/wiki/Tim_Berners-Lee">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Sir_Tim_Berners-Lee_%28cropped%29.jpg"
+            alt="Picture of Tim Berners Lee in Blue Suit">
+    </a>
+
+    <h2>Three Parts of the World Wide Web</h2>
+        <ul>
+            <li>HTML is the language used to create web pages</li>
+            <li>URL gives each page a unique address</li>
+            <li>HTTP controls how much information is transferred between devices</li>
+        </ul>
+
+<footer>
+    &copy; <x-year></x-year> All Rights Reserved 
+</footer>
+</body>
+</html>
