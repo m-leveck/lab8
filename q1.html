@@ -13,6 +13,11 @@
             let nPiDay=new Date(today.getFullYear(), 2, 14);
             let nSeconds = 1000*60*60*24;
             let nDaysLeft = Math.ceil((nPiDay.getTime()-today.getTime())/(nSeconds));
+            if (nDaysLeft < 0) {
+                nPiDay = new Date(today.getFullYear() + 1, 2, 14);
+                nSeconds = 1000*60*60*24;
+                nDaysLeft = Math.ceil((nPiDay.getTime()-today.getTime())/(nSeconds));
+            }
             console.log(nDaysLeft); //logs the value we are looking for in our heading
                 this.innerHTML=nDaysLeft;
             // put your "secret sauce here to get this in to the document
