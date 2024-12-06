@@ -1,40 +1,39 @@
 <!DOCTYPE html>
-
+<html lang="en">
 <head>
+    <title>Days Until Pi Day</title>
 </head>
 
 <body>
     <h1>There are <x-daysleft></x-daysleft> day(s) left until PI Day (<x-piday></x-piday>).</h1>
-</body>
-<script>
-    class DaysLeft extends HTMLElement{
-        connectedCallback(){
-            let today=new Date();
-            let nPiDay=new Date(today.getFullYear(), 2, 14);
-            let nSeconds = 1000*60*60*24;
-            let nDaysLeft = Math.ceil((nPiDay.getTime()-today.getTime())/(nSeconds));
-            if (nDaysLeft < 0) {
-                nPiDay = new Date(today.getFullYear() + 1, 2, 14);
-                nSeconds = 1000*60*60*24;
-                nDaysLeft = Math.ceil((nPiDay.getTime()-today.getTime())/(nSeconds));
+    <script>
+        class DaysLeft extends HTMLElement{
+            connectedCallback(){
+                let today=new Date();
+                let nPiDay=new Date(today.getFullYear(), 2, 14);
+                let nSeconds = 1000*60*60*24;
+                let nDaysLeft = Math.ceil((nPiDay.getTime()-today.getTime())/(nSeconds));
+                if (nDaysLeft < 0) {
+                    nPiDay = new Date(today.getFullYear() + 1, 2, 14);
+                    nSeconds = 1000*60*60*24;
+                    nDaysLeft = Math.ceil((nPiDay.getTime()-today.getTime())/(nSeconds));
+                }
+                console.log(nDaysLeft); //logs the value we are looking for in our heading
+                    this.innerHTML=nDaysLeft;
             }
-            console.log(nDaysLeft); //logs the value we are looking for in our heading
-                this.innerHTML=nDaysLeft;
-            // put your "secret sauce here to get this in to the document
         }
-    }
-
-    customElements.define("x-daysleft", DaysLeft);
-
-    class PiDay extends HTMLElement{
-        connectedCallback(){
-            let today=new Date();
-            let nPiDay=new Date(today.getFullYear(), 2, 14);
-            this.innerHTML = nPiDay.toLocaleDateString('en-CA');
+    
+        customElements.define("x-daysleft", DaysLeft);
+    
+        class PiDay extends HTMLElement{
+            connectedCallback(){
+                let today=new Date();
+                let nPiDay=new Date(today.getFullYear(), 2, 14);
+                this.innerHTML = nPiDay.toLocaleDateString('en-CA');
+            }
         }
-    }
-
-    customElements.define("x-piday", PiDay);
-</script>
-
+    
+        customElements.define("x-piday", PiDay);
+    </script>
+</body>
 </html>
